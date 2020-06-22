@@ -1,0 +1,10 @@
+version: '3'
+services:
+  local_dev_postgres:
+    image: "postgres"
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=explorer
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=exploration-db
