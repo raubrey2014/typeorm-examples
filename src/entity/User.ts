@@ -1,5 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, VersionColumn, OneToMany, DeleteDateColumn } from 'typeorm'
+import { Entity, PrimaryGeneratedColumn, Column, VersionColumn, OneToMany, DeleteDateColumn, ManyToOne } from 'typeorm'
 import { Task } from './Task'
+import Team from './Team'
 
 /**
  * This is an example of the data mapper pattern
@@ -95,6 +96,12 @@ export class User {
      */
     @OneToMany(() => Task, (t) => t.creator, { cascade: true })
     tasks: Promise<Task[]>
+
+    /**
+     * Not lazily loaded, loaded everytime
+     */
+    @ManyToOne(() => Team, (t) => t.members)
+    team: Team
 
     /**
      * ANTI-PATTERN:
