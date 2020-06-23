@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, VersionColumn, OneToMany } from 'typeorm'
+import { Entity, PrimaryGeneratedColumn, Column, VersionColumn, OneToMany, DeleteDateColumn } from 'typeorm'
 import { Task } from './Task'
 
 /**
@@ -42,6 +42,12 @@ export class User {
      */
     @Column()
     age: number
+
+    /**
+     * A column used in the implementation of "soft-deletes"
+     */
+    @DeleteDateColumn()
+    deleteDate: Date
 
     /**
      * This is an example of version number column. This column
@@ -99,6 +105,10 @@ export class User {
      * 2. For this method to be present on your entity, you need an entity instantiated from new Entity(),
      *    but many methods like find or findOne return simple json objects that just contain the schema fields.
      *    This exampleMethod would not be defined on the User object as a result of find.
+     *
+     * UPDATE:
+     *
+     * This looks to actively break soft-delete feature. Don't do it!
      */
-    exampleMethod = (): void => console.log('Example method!')
+    // exampleMethod = (): void => console.log('Example method!')
 }
