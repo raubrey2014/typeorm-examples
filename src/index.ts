@@ -2,7 +2,7 @@ import 'reflect-metadata'
 import { createConnection } from 'typeorm'
 
 // How to run an example!
-import example from './examples/migrations-on-a-schema'
+import example from './examples/geometry-types'
 import clear from './examples/clearing-a-table'
 
 createConnection({
@@ -12,7 +12,7 @@ createConnection({
     username: 'explorer',
     password: 'password',
     database: 'exploration-db',
-    synchronize: false,
+    synchronize: true, // To run migration examples, set to false!
     logging: true,
     entities: ['src/entity/**/*.ts'],
     migrations: ['src/migration/**/*.ts'],
@@ -22,6 +22,6 @@ createConnection({
         // .. this function is very similar to something you would want
         // to run before tests!
         await clear()
-        await example('exampleclient1')
+        await example()
     })
     .catch((error) => console.log(error))
