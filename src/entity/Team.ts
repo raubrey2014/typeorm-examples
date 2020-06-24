@@ -16,7 +16,7 @@ class Team {
     @Column()
     name: string
 
-    @OneToMany(() => User, (u) => u.team)
+    @OneToMany(() => User, (u) => u.team, { onDelete: 'CASCADE' })
     members: Promise<User[]>
 
     /**
@@ -33,6 +33,8 @@ class Team {
         },
     })
     latLong: Point
+
+    auditTrackingFingerprint: string
 }
 
 export default Team

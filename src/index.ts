@@ -2,7 +2,7 @@ import 'reflect-metadata'
 import { createConnection } from 'typeorm'
 
 // How to run an example!
-import example from './examples/geometry-types'
+import example from './examples/subscriber'
 import clear from './examples/clearing-a-table'
 
 createConnection({

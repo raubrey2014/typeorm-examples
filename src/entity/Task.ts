@@ -61,4 +61,12 @@ export class Task extends BaseEntity {
 
     @VersionColumn()
     version: number
+
+    /**
+     * This is a method used to pass metadata to typeorm subscribers.
+     *
+     * In subscriber world, the only things that get passed are the entity, the
+     * entity manager for the transaction, and the connection.
+     */
+    auditTrackingFingerprint: string
 }
