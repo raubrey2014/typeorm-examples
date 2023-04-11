@@ -19,7 +19,7 @@
    "dependencies": {
       "pg": "^7.3.0",
       "reflect-metadata": "^0.1.10",
-      "typeorm": "0.2.25",
+      "typeorm": "0.3.14",
       "uuid": "^8.2.0"
    },
    "scripts": {
